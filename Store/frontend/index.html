@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h2 id="title">Register</h2>
+
+            <input type="text" id="username" placeholder="Username">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Password">
+
+                <span class="eye-icon" onclick="togglePassword()">
+                    👁
+                </span>
+            </div>
+
+            <button id="submitBtn" onclick="register()">
+                Register
+            </button>
+
+            <p id="toggleText">
+                Already have an account?
+                <a href="#" onclick="showLogin()">Login</a>
+            </p>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

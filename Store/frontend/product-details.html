@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="product-details.css">
+</head>
+<body><nav class="navbar">
+
+    <div class="logo">
+        Fashion Store
+    </div>
+
+    <div class="nav-links">
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a id="wishlistLink"
+           href="wishlist.html">
+            ❤️ Wishlist
+        </a>
+
+        <a id="cartLink"
+           href="cart.html">
+            🛒 Cart
+        </a>
+
+        <a href="order-history.html">
+            📦 Orders
+        </a>
+
+        <a href="#" onclick="logout()">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+    <div class="product-container">
+
+        <img id="productImage" alt="Product Image">
+
+        <div class="details">
+
+            <h1 id="productName"></h1>
+
+            <h2 id="productPrice"></h2>
+
+            <p id="productDescription"></p>
+
+            <h3>Select Size</h3>
+
+            <div class="sizes">
+                <button>S</button>
+                <button>M</button>
+                <button>L</button>
+                <button>XL</button>
+            </div>
+
+            <h3>Quantity</h3>
+
+            <div class="quantity-box">
+
+                <button onclick="decreaseQty()">
+                    -
+                </button>
+
+                <span id="quantity">1</span>
+
+                <button onclick="increaseQty()">
+                    +
+                </button>
+
+            </div>
+
+            <button class="cart-btn"
+                    onclick="addToCart()">
+                Add To Cart
+            </button>
+
+            <button class="wish-btn"
+                    onclick="addToWishlist()">
+                Add To Wishlist
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="product-details.js"></script><script>
+
+const cartCount =
+JSON.parse(localStorage.getItem("cart"))
+?.length || 0;
+
+const wishlistCount =
+JSON.parse(localStorage.getItem("wishlist"))
+?.length || 0;
+
+document.getElementById("cartLink")
+.innerText =
+`🛒 Cart (${cartCount})`;
+
+document.getElementById("wishlistLink")
+.innerText =
+`❤️ Wishlist (${wishlistCount})`;
+
+function logout(){
+
+    window.location.href =
+    "index.html";
+}
+
+</script>
+
+</body>
+</html>

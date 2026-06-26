@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Store</title>
+
+    <link rel="stylesheet" href="products.css">
+</head>
+
+<body>  
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Fashion Store
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search Products..."
+            onkeyup="searchProducts()">
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a id="wishlistLink" href="wishlist.html">
+                ❤️ Wishlist
+            </a>
+
+            <a id="cartLink" href="cart.html">
+                🛒 Cart
+            </a>
+
+            <a href="order-history.html">
+                📦 Orders
+            </a>
+
+            <a href="#" onclick="logout()">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+  
+    <!-- Products -->
+    <div
+        class="products-container"
+        id="productsContainer">
+
+    </div>
+
+    <!-- Products JS -->
+    <script src="products.js"></script>
+
+    <!-- Cart & Wishlist Counter -->
+    <script>
+
+        const cartCount =
+            JSON.parse(
+                localStorage.getItem("cart")
+            )?.length || 0;
+
+        const wishlistCount =
+            JSON.parse(
+                localStorage.getItem("wishlist")
+            )?.length || 0;
+
+        document.getElementById("cartLink")
+            .innerText =
+            `🛒 Cart (${cartCount})`;
+
+        document.getElementById("wishlistLink")
+            .innerText =
+            `❤️ Wishlist (${wishlistCount})`;
+
+        function logout() {
+
+            localStorage.removeItem(
+                "selectedProduct"
+            );
+
+            window.location.href =
+                "index.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
